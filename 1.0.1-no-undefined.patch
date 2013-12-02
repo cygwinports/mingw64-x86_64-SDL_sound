@@ -1,0 +1,10 @@
+--- origsrc/SDL_sound-1.0.1/Makefile.am	2003-10-12 14:18:35.000000000 -0500
++++ src/SDL_sound-1.0.1/Makefile.am	2007-11-01 23:05:00.578125000 -0500
+@@ -28,6 +28,7 @@
+ endif
+ 
+ libSDL_sound_la_LDFLAGS = 		\
++	-no-undefined \
+ 	-release $(LT_RELEASE)	\
+ 	-version-info $(LT_CURRENT):$(LT_REVISION):$(LT_AGE)
+ libSDL_sound_la_LIBADD =	\

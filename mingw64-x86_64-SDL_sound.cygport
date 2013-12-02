@@ -1,0 +1,33 @@
+CROSS_HOST="x86_64-w64-mingw32"
+inherit cross
+
+NAME="mingw64-x86_64-SDL_sound"
+VERSION=1.0.3
+RELEASE=1
+CATEGORY="Libs"
+SUMMARY="SDL sound file decoding library for Win64 toolchain"
+DESCRIPTION="SDL_sound is a library that handles the decoding of several
+popular sound file formats. It is meant to make the programmer's sound
+playback tasks simpler."
+HOMEPAGE="http://icculus.org/SDL_sound/"
+#SRC_URI="http://icculus.org/SDL_sound/downloads/SDL_sound-${VERSION}.tar.gz"
+SRC_URI="http://pkgs.fedoraproject.org/repo/pkgs/SDL_sound/SDL_sound-${VERSION}.tar.gz/34d057f4a0cb9bbd267a4e7e050d5a03/SDL_sound-${VERSION}.tar.gz"
+SRC_DIR="SDL_sound-${VERSION}"
+PATCH_URI="1.0.1-no-undefined.patch"
+
+DISTCLEANFILES="acinclude.m4"
+NO_AUTOHEADER=1
+
+CYGCONF_ARGS="
+	--enable-flac
+	--disable-midi
+	--disable-mikmod
+	--enable-modplug
+	--disable-mpglib
+	--enable-ogg
+	--disable-smpeg
+	--enable-speex
+	lt_cv_deplibs_check_method=pass_all
+"
+
+KEEP_LA_FILES="none"
